@@ -20,6 +20,9 @@
     "league/oauth2-client": {
         "version": "2.3.0"
     },
+    "league/oauth2-facebook": {
+        "version": "2.0.1"
+    },
     "paragonie/random_compat": {
         "version": "v2.0.17"
     },
