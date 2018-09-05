@@ -11,6 +11,8 @@
         "symfony/console": "*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "*",
+        "symfony/orm-pack": "^1.0",
+        "symfony/security-bundle": "*",
         "symfony/web-server-bundle": "*",
         "symfony/yaml": "*"
     },
