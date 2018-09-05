@@ -6,6 +6,7 @@ use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 class FacebookController extends Controller
@@ -50,24 +51,8 @@ class FacebookController extends Controller
     public function connectCheckAction(Request $request)
     {
         // ** if you want to *authenticate* the user, then
-        // leave this method blank and create a Guard authenticator
-        // (read below)
+		// leave this method blank and create a Guard authenticator
 
-		/** @var \KnpU\OAuth2ClientBundle\Client\Provider\FacebookClient $client */
-		$client = $this->clientRegistry->getClient('facebook_main');
-
-		try {
-            // the exact class depends on which provider you're using
-            /** @var \League\OAuth2\Client\Provider\FacebookUser $user */
-            $user = $client->fetchUser();
-
-            // do something with all this new power!
-            var_dump($user); die;
-            // ...
-        } catch (IdentityProviderException $e) {
-            // something went wrong!
-            // probably you should return the reason to the user
-            var_dump($e->getMessage()); die;
-        }
+		return new JsonResponse($this->getUser()->getFacebookId());
     }
 }
